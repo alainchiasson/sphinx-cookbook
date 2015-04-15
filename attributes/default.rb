@@ -20,10 +20,17 @@ default[:sphinx][:source][:extra_configure_flags] = []
 default[:sphinx][:source][:branch]                = 'trunk'
 default[:sphinx][:source][:revision]              = 'HEAD'
 
+default[:sphinx][:repo][:base_url] = "http://sphinxsearch.com/files/"
+
 # Package installation via RPM
-default[:sphinx][:rpm][:conf_path]             = '/etc/sphinx'
-default[:sphinx][:rpm][:name]                  = "sphinx-2.2.3-1.rhel6.x86_64.rpm"
-default[:sphinx][:rpm][:base_url]              = "http://sphinxsearch.com/files/"
+default[:sphinx][:rpm][:conf_path] = '/etc/sphinx'
+default[:sphinx][:rpm][:name]      = 'sphinx-2.2.3-1.rhel6.x86_64.rpm'
+
+# Package installation via DEB
+default[:sphinx][:deb][:conf_path] = '/etc/sphinxsearch'
+default[:sphinx][:deb][:var_path]  = '/var/lib/sphinxsearch'
+default[:sphinx][:deb][:name]      = 'sphinxsearch_%{version}-release-1~%{codename}_%{arch}.deb'
+default[:sphinx][:deb][:autostart] = 'no'
 
 # Package Installation Settings
 default[:sphinx][:package][:name]     = nil # depends on platform_family when not explicit
